@@ -4,24 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-size: cover;
-            background-color: #F0EBE8;
-            overflow-x: hidden
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container  {
-            margin: 100px 0 0 200px;
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            padding: 0 20px;
+            z-index: 2;
+            flex-wrap: nowrap;
+        }
+
+        nav img {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        nav h2 {
+            font-size: 4rem;
+            font-family: "Caveat", cursive;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+
+        nav h3 {
+            font-size: 2rem;
+            color: #E1306C;
+            animation: fadeIn 3s ease-out;
+            opacity: 0;
+            margin-top: 10px;
+            text-align: center;
+            flex-grow: 0;
+            margin-right: 20px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .home-btn {
+            background-color: #E1306C;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 1;
+        }
+
+        .home-btn:hover {
+            background-color: #C13584;
+            transform: scale(1.05);
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            margin-top: 70px;
             width: 100%;
             height: 80vh;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
+            position: relative;
         }
 
         .container img {
             width: 10%;
+            max-width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
@@ -30,20 +110,103 @@
         }
 
         .container img:hover {
-            width: 25%;
+            width: 20%;
         }
+
+        @media screen and (max-width: 1024px) {
+            nav h2 {
+                font-size: 3rem;
+            }
+            .container {
+                margin-top: 70px;
+                width: 100%;
+                height: 80vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                position: relative;
+            }
+
+            .container img {
+                width: 10%;
+                max-width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+                border: 2px solid rgba(255, 255, 255, 0.684);
+                transition: all ease-in-out 0.5s;
+            }
+
+            .container img:hover {
+                width: 20%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav h2 {
+                font-size: 2.5rem;
+            }
+
+            .home-btn {
+                margin-top: 20px;
+            }
+
+            .container {
+                height: auto;
+                margin-top: 80px;
+                justify-content: center;
+            }
+
+            .container img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            nav h2 {
+                font-size: 2rem;
+            }
+
+            .home-btn {
+                margin-top: 20px;
+            }
+            
+            .container {
+                margin-top: 80px;
+            }
+
+            .container img {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 10px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <nav> 
-        <a href=""></a>
-    </nav>
-    <div class="container">
-        <img src="./assets/galleryimg/image.png" alt="" >
-        <img src="./assets/galleryimg/image copy 2.png" alt="">
-        <img src="./assets/galleryimg/image copy 3.png" alt="">
-        <img src="./assets/galleryimg/image copy 4.png" alt="">
-        <img src="./assets/galleryimg/image copy.png" alt="">
+
+    <div class="gallery">
+        <nav>
+            <h2>Baek Ji Heon</h2>
+            <a href="./index.html" class="home-btn">Home</a>
+        </nav>
+
+        <div class="container">
+            <img src="./assets/galleryimg/image.png" alt="">
+            <img src="./assets/galleryimg/image copy 2.png" alt="">
+            <img src="./assets/galleryimg/image copy 3.png" alt="">
+            <img src="./assets/galleryimg/image copy 4.png" alt="">
+            <img src="./assets/galleryimg/image copy.png" alt="">
+        </div>
     </div>
 </body>
 </html>

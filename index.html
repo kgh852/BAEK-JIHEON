@@ -1,184 +1,407 @@
-    <!DOCTYPE html>
-    <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ji Heon</title>
-        <script src="https://kit.fontawesome.com/832f1626a8.js" crossorigin="anonymous"></script>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                -ms-overflow-style: none;   
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ji Heon</title>
+    <link rel="icon" href="./assets/logo/image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.co1m">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/832f1626a8.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -ms-overflow-style: none;
+        }
 
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url(./assets/imgs/image%208.png);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: #fff;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-section h2 {
+            font-size: 4rem;
+            z-index: 2;
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;                                   
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            z-index: 2;
+            margin-top: 10px;
+        }
+
+        .gallery-section {
+            padding: 50px 5%;
+            text-align: center;
+            width: 100%;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .gallery-section img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .gallery-section h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-section p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .instagram-icon:hover {
+            color: #E1306C;
+        }
+
+        .gallery-item {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .gallery-item .linkedimg {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item .linkedimg:hover {
+            transform: scale(1.1);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .gallery-item h4 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 17px;
+            font-family: "Asap", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 30px;
+            width: 100%;  
+            text-align: center;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background-color: #fff;
+            animation: progress 5s linear infinite;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0;
             }
-
-            ::-webkit-scrollbar {
-                display: none;
-            }
-
-            body {
-                background-color: #F0EBE8;
-                font-family: Arial, sans-serif;
-
-            }
-
-            .hero-section {
+            to {
                 width: 100%;
-                height: 100vh;
-                display: flex;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-section h2, .hero-section p {
+            animation: fadeIn 2s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        .hero-section h2 {
+            animation-delay: 0.5s; 
+        }
+
+        .hero-section p {
+            animation-delay: 1s; 
+        }
+
+        .gallery-section {
+            display: flex;
+            flex-direction: row; 
+            align-items: center; 
+            justify-content: center;
+            height: 100vh; 
+            padding: 0 5%;
+            gap: 200px;
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center;
+            gap: 15px; 
+            max-width: 300px;
+        }
+
+        .gallery-items {
+            display: flex;
+            flex-direction: row; 
+            gap: 30px; 
+        }
+
+
+        .gallery-item img {
+            width: 800px; 
+            height: 800px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-item img {
+            width:  250px;  
+            height: 225px; 
+            object-fit: cover; 
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-section p, h3{
+            font-family: "Asap", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            width: 100%;  
+            text-align: center;
+        }
+        
+        .instagram-icon {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            width: 50px; 
+            height: 50px;
+            background-color: #E1306C;
+            color: white;
+            border-radius: 50%;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            text-decoration: none;
+            font-size: 1.5rem; 
+            margin: 0 auto; 
+        }
+
+        .instagram-icon:hover {
+            transform: scale(1.2);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7); 
+            background-color: #C13584; 
+            color: white;
+        }
+
+
+        @media screen and (max-width: 1206px) {
+            .gallery-section {
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                gap: 30px;
+                padding: 20px;
+                height: auto;
+            }
+
+            .info-section {
+                align-items: center;
                 text-align: center;
-                background-image: url(./assets/imgs/image%208.png);
-                background-size: cover;
-                background-position: center;
-                position: relative;
-                color: #fff;
+                max-width: 100%;
+                gap: 10px;
             }
 
-            .hero-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 1;
+            .info-section img {
+                width: 120px;
+                height: auto;
             }
 
-            .hero-section h2 {
-                font-size: 3rem;
-                z-index: 2;
-            }
-
-            .hero-section p {
-                font-size: 1.5rem;
-                z-index: 2;
-                margin-top: 10px;
-            }
-
-            .content-section {
-                padding: 50px 5%;
-                text-align: center;
-                width: 100%;
-                height: 100vh;
-            }
-
-            .content-section img {
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 20px;
-            }
-
-            .content-section h3 {
-                font-size: 2rem;
-                margin-bottom: 10px;
-            }
-
-            .content-section p {
+            .info-section p {
                 font-size: 1rem;
-                color: #555;
             }
 
-            .instagram-icon:hover {
-                color: #E1306C;
-            }
-
-            .progress-bar {
-                position: absolute;
-                bottom: 0;
-                left: 0;
+            .info-section p, h3 {
+                font-family: "Asap", sans-serif;
+                font-weight: 700;
+                font-style: normal;
                 width: 100%;
-                height: 5px;
-                background-color: rgba(255, 255, 255, 0.3);
-                overflow: hidden;
+                text-align: center;
             }
+        }
 
-            .progress-bar span {
-                display: block;
-                height: 100%;
-                width: 0;
-                background-color: #fff;
-                animation: progress 5s linear infinite;
-            }
-
-            @keyframes progress {
-                from {
-                    width: 0;
-                }
-                to {
-                    width: 100%;
-                }
-            }
-
-
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .hero-section h2, .hero-section p {
-                animation: fadeIn 2s ease-in-out forwards;
-                opacity: 0;
-            }
-
+        @media screen and (max-width: 480px) {
             .hero-section h2 {
-                animation-delay: 0.5s; 
+                font-size: 2rem;
             }
 
             .hero-section p {
-                animation-delay: 1s; 
+                font-size: 1rem;
             }
 
-        </style>
-    </head>
-    <body>
-        <section class="hero-section">
-            <h2>Baek Ji Heon</h2>
-            <p>백지헌</p>
-            <div class="progress-bar">
-                <span></span>
-            </div>
-        </section>
+            .gallery-section {
+                padding: 10px 5%;
+                gap: 10px;
+            }
 
-        <section class="content-section">
+            .gallery-items {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gallery-item img {
+                width: 100%;
+                max-width: 150px;
+            }
+
+            .info-section {
+                gap: 10px;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .info-section img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .info-section p {
+                font-size: 0.8rem;
+            }
+
+            .info-section p, h3 {
+                font-family: "Asap", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <h2>Baek Ji Heon</h2>
+        <div class="progress-bar">
+            <span></span>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="info-section">
             <img id="jiheon-image" src="./assets/imgs/image%2012.png" alt="Ji Heon Logo">
             <h3>About Ji Heon</h3>
-            <p>백지헌은 예쁘다</p>
-
+            <p>이름: 백지헌</p>
+            <p>나이: 21세</p>
+            <p>출생: 전라남도 보성군</p>
+            <p>소속 그룹: 프로미스나인</p>
+            <p>포지션: 서브보컬</p>
             <a href="https://www.instagram.com/jiheonnibaek/" target="_blank" class="instagram-icon">
                 <i class="fab fa-instagram"></i>
             </a>
-        </section>
+        </div>
+        <div class="gallery-items">
+            <div class="gallery-item">
+                <h4>Home</h4>   
+                <a href="">
+                    <img src="./assets/linkimg/image.png" alt="Home" class="linkedimg">
+                </a>
+            </div>
+            <div class="gallery-item">
+                <h4>About</h4>
+                <img src="./assets/linkimg/image copy.png" alt="About" class="linkedimg">
+            </div>
+            <div class="gallery-item">
+                <h4>Gallery</h4>
+                <a href="./gallery.html">
+                    <img src="./assets/linkimg/image copy 2.png" alt="Gallery" class="linkedimg">
+                </a>
+            </div>
+        </div>
+    </section>    
 
-        <script>
-            const images = [ 
-                './assets/imgs/image%20copy.png',
-                './assets/imgs/image%20copy%202.png', 
-                './assets/imgs/image.png',
-                './assets/imgs/image%208.png',
-            ];
-            let currentIndex = 0;
+    <script>
+        const images = [ 
+            './assets/imgs/image%20copy.png',
+            './assets/imgs/image%20copy%202.png', 
+            './assets/imgs/image.png',
+            './assets/imgs/image%208.png',
+        ];
+        let currentIndex = 0;
 
-            function changeImage() {
-                const heroSection = document.querySelector('.hero-section');
-                currentIndex = (currentIndex + 1) % images.length;
-                heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
-            }
+        function changeImage() {
+            const heroSection = document.querySelector('.hero-section');
+            currentIndex = (currentIndex + 1) % images.length;
+            heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
 
-            setInterval(changeImage, 5000);
-        </script>
-    </body>
+        setInterval(changeImage, 5000);
+    </script>
+</body>
 </html>
+    
